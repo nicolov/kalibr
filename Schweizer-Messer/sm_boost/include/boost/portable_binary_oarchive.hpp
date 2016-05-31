@@ -2,7 +2,7 @@
 #define PORTABLE_BINARY_OARCHIVE_HPP
 
 // MS compatible compilers support #pragma once
-#if defined(_MSC_VER) && (_MSC_VER >= 1020)
+#if defined(_MSC_VER)
 # pragma once
 #endif
 
@@ -28,24 +28,19 @@
 #include <boost/archive/detail/common_oarchive.hpp>
 #include <boost/archive/detail/register_archive.hpp>
 
-#include "portable_binary_archive.hpp"
+#include <boost/portable_binary_archive.hpp>
 
-namespace boost {
-    namespace archive {
-        
 /////////1/////////2/////////3/////////4/////////5/////////6/////////7/////////8
 // exception to be thrown if integer read from archive doesn't fit
 // variable being loaded
 class portable_binary_oarchive_exception : 
-    public virtual boost::archive::archive_exception
+    public boost::archive::archive_exception
 {
 public:
     typedef enum {
         invalid_flags 
     } exception_code;
-  portable_binary_oarchive_exception(exception_code /* c */ )
-    {}
-    portable_binary_oarchive_exception( )
+    portable_binary_oarchive_exception(exception_code c = invalid_flags )
     {}
     virtual const char *what( ) const throw( )
     {
@@ -180,9 +175,6 @@ public:
         init(flags);
     }
 };
-
-    } // namespace archive
-} // namespace boost
 
 
 // required by export in boost version > 1.34

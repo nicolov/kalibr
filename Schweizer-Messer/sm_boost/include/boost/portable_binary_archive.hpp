@@ -7,7 +7,7 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 
 // MS compatible compilers support #pragma once
-#if defined(_MSC_VER) && (_MSC_VER >= 1020)
+#if defined(_MSC_VER)
 # pragma once
 #endif
 
@@ -24,9 +24,6 @@
 #include <boost/archive/basic_archive.hpp>
 #include <boost/detail/endian.hpp>
 
-
-namespace boost {
-    namespace archive {
 enum portable_binary_archive_flags {
     endian_big        = 0x4000,
     endian_little     = 0x8000
@@ -46,10 +43,5 @@ reverse_bytes(char size, char *address){
         *first = x;
     }
 }
-
-        
-    } // namespace archive
-} // namespace boost
-
 
 #endif // PORTABLE_BINARY_ARCHIVE_HPP

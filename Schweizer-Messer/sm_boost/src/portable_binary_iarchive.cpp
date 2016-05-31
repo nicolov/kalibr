@@ -16,8 +16,6 @@
 #include <boost/archive/archive_exception.hpp>
 
 #include <boost/portable_binary_iarchive.hpp>
-namespace boost {
-namespace archive {
 
 void 
 portable_binary_iarchive::load_impl(boost::intmax_t & l, char maxsize){
@@ -112,8 +110,6 @@ portable_binary_iarchive::init(unsigned int flags){
     load(x);
     m_flags = x << CHAR_BIT;
 }
-
-}}
 
 #include <boost/archive/impl/archive_serializer_map.ipp>
 #include <boost/archive/impl/basic_binary_iprimitive.ipp>

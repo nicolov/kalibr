@@ -12,13 +12,10 @@
 #include <boost/detail/endian.hpp>
 #include <boost/portable_binary_oarchive.hpp>
 
-namespace boost {
-    namespace archive {
-        
 void 
 portable_binary_oarchive::save_impl(
     const boost::intmax_t l,
-    const char /* maxsize */
+    const char maxsize
 ){
     char size = 0;
 
@@ -81,8 +78,6 @@ portable_binary_oarchive::init(unsigned int flags) {
     save(static_cast<unsigned char>(m_flags >> CHAR_BIT));
 }
 
-} // namespace archive
-} // namespace boost
 #include <boost/archive/impl/archive_serializer_map.ipp>
 #include <boost/archive/impl/basic_binary_oprimitive.ipp>
 
